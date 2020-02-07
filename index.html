@@ -5,86 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GalleryTest</title>
-    <style>
-        .body {
-            padding: 0pt;
-            background-color: black;
-            color: white;
-            font-family: "Oswald";
-            text-align: center;
-        }
-        header {
-            margin: 20pt;
-            font-size: 32px;
-            text-align: center;
-        }
-        .gallery {
-            max-width: 100vw;
-            height: 768px;
-            padding: 0pt;
-        }
-        .image-container {
-            padding: 0pt;
-            width: 6830px;
-        }
-        .slide {
-            position: absolute;
-            float: left;
-            left: -1366px;
-            transition: 1s;
-        }
-        .slide_inactive {
-            left: 0px;
-        }
-        .button_bar {
-            margin: 50pt;
-            text-align: center;
-            padding: 20pt;
-        }
-    </style>
-    <script type="text/javascript">
-        var prev = 0;
-        var toRemove = 0;
-
-        setInterval(doRefresh, 4000);
-
-        var curr = 0;
-
-        function doRefresh() {
-            if (curr == 4) curr = 0;
-            else curr++;
-            getImage(curr); 
-        }
-        function getImage(index) {
-            if (index == prev) {
-                console.log("Image already showing!");
-                return;
-            } else {
-                console.log("Pulling in image "+index+" and removing image "+prev);
-                var newImg = document.getElementById("s"+index);
-                newImg.style.left = "0px";
-                toRemove = prev;
-                setTimeout(() => hideImage(toRemove), 1000);
-                prev = index;
-            }
-        }
-        function hideImage(index) {
-            console.log("dafuq!");
-            document.getElementById("s"+index).classList.remove("slide");
-            document.getElementById("s"+index).style.left = "-1366px";
-            document.getElementById("s"+index).classList.add("slide");
-        }
-    </script>
+    <link rel="stylesheet" href="res/styles.css"/>
+    <script type="text/javascript" src="gallery.js"></script>
 </head>
 <body>
     <header>GALLERY TEST</header>
     <div class="gallery">
         <div class="image-container">
-            <img class="slide" id="s0" src="image.jpg" style="left: 0px;"/>
-            <img class="slide" id="s1" src="image2.jpg"/>
-            <img class="slide" id="s2" src="image3.jpg"/>
-            <img class="slide" id="s3" src="image4.jpg"/>
-            <img class="slide" id="s4" src="image5.jpg"/>
+            <img class="slide" id="s0" src="res/gallery_img/image.jpg" style="left: 0px;"/>
+            <img class="slide" id="s1" src="res/gallery_img/image2.jpg"/>
+            <img class="slide" id="s2" src="res/gallery_img/image3.jpg"/>
+            <img class="slide" id="s3" src="res/gallery_img/image4.jpg"/>
+            <img class="slide" id="s4" src="res/gallery_img/image5.jpg"/>
         </div>
     </div>
     <div class="button_bar">
