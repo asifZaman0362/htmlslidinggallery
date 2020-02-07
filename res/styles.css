@@ -1,6 +1,6 @@
-.body {
+body {
     padding: 0pt;
-    background-color: black;
+    background: black;
     color: white;
     font-family: "Oswald";
     text-align: center;
@@ -23,7 +23,6 @@ header {
     position: absolute;
     float: left;
     left: -1366px;
-    transition: 1s;
 }
 .slide_inactive {
     left: 0px;
