@@ -48,7 +48,4 @@ function slideNext(index) {
             element.style.left = left + "vw";
         }
     });
-    // setTimeout(function() {
-    //     image_elements[index].style.transition = "none";
-    // }, 1050);
 }
