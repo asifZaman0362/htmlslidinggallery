@@ -6,29 +6,23 @@ body {
     text-align: center;
 }
 header {
-    margin: 20pt;
     font-size: 32px;
     text-align: center;
-}
-.gallery {
-    max-width: 100vw;
-    height: 768px;
-    padding: 0pt;
+    margin: 20pt 0 30pt 0;
 }
 .image-container {
-    padding: 0pt;
-    width: 6830px;
+    width: 99vw;
+    height: 81vh;
+    position: relative;
+    overflow: hidden;
 }
 .slide {
     position: absolute;
     float: left;
-    left: -1366px;
+    width: 99vw;
+    height: 81vh;
+    object-fit: cover;
 }
 .slide_inactive {
     left: 0px;
-}
-.button_bar {
-    margin: 50pt;
-    text-align: center;
-    padding: 20pt;
 }

@@ -2,14 +2,22 @@ var images = ["image","image2","image3","image4","image5"];
 var path = "res/gallery_img/";
 var extension = ".jpg";
 
-var image_front, image_back = null;
+var image_elements = [];
 
 window.addEventListener("load", onDocumentLoad);
 
 function onDocumentLoad() {
-    image_back = document.getElementById("s0");
-    image_front = document.getElementById("s1");
-    image_back.src = getImageFromFile(0);
+    for (i = 0; i < images.length; i++) {
+        var el = document.createElement("IMG");
+        el.classList.add("slide");
+        el.id = "s"+i;
+        el.style.left = "-" + parseInt(i) + "00vw";
+        el.src = getImageFromFile(i);
+        el.style.transition = "1s";
+        image_elements.push(el);
+        document.getElementById("image-cont").appendChild(el);
+    }
+    //document.getElementById("image-cont").style.width = image_elements.length + "00vw";
     setInterval(updateImage, 4000);
 }
 
@@ -22,18 +30,25 @@ var curr = 0;
 function updateImage() {
     if (curr == images.length - 1) curr = 0;
     else curr++;
-    setImage(curr);
+    slideNext(curr);
 }
 
-function setImage(index) {
-    image_front.src = getImageFromFile(index);
-    image_front.style.transition = "1s";
-    image_front.style.left = "0px";
-    setTimeout(() => slideBack(index), 1050);
-}
-
-function slideBack(index) {
-    image_back.src = getImageFromFile(index);
-    image_front.style.transition = "none";
-    image_front.style.left = "-1366px";
+function slideNext(index) {
+    image_elements[index].style.transition = "1s";
+    image_elements[index].style.left = "0";
+    image_elements.forEach(element => {
+        if(element != image_elements[index])
+        {    
+            var left = parseInt(element.style.left.split("vw")[0]);
+            if (left == 100) {
+                left = (image_elements.length - 2) * -100;
+                element.style.transition = "none";
+            }
+            else left += 100;
+            element.style.left = left + "vw";
+        }
+    });
+    // setTimeout(function() {
+    //     image_elements[index].style.transition = "none";
+    // }, 1050);
 }
