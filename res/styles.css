@@ -10,12 +10,14 @@ header {
     text-align: center;
     margin: 20pt 0 30pt 0;
 }
-.image-container {
+
+#image-container {
     width: 99vw;
     height: 81vh;
     position: relative;
     overflow: hidden;
 }
+
 .slide {
     position: absolute;
     float: left;

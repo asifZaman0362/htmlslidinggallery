@@ -15,7 +15,7 @@ function onDocumentLoad() {
         el.src = getImageFromFile(i);
         el.style.transition = "1s";
         image_elements.push(el);
-        document.getElementById("image-cont").appendChild(el);
+        document.getElementById("image-container").appendChild(el);
     }
     //document.getElementById("image-cont").style.width = image_elements.length + "00vw";
     setInterval(updateImage, 4000);
